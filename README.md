@@ -57,3 +57,90 @@ Projects need to be approved prior to launching into them, so take some time to 
 # in config/environment.rb add this line:
 ActiveRecord::Base.logger = nil
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Game
+    has_many :players
+    has_many :rolls, through: :players
+
+
+Player
+    has_many :rolls
+    belongs_to :game
+
+Roll
+    belongs_to :player
+
+
+
+
+
+User Story
+    User can create players to be automatically rotated through
+
+    Program will generate a DiceRoll(num1-6 + num1-6)
+
+    When the game is over, the program will report data about the rolls made
+        most common roll
+        how many of a given roll were made
+
+    
+
+
+
+
+
+
+Stretch Goals
+    Ascii art
+
+    personal commands
+        "its 'players' turn,   type next to roll, or stop to end the game"
+
+
+
+
+
+
+
+
+
+
+
+
+
+questions
+
+    how to loop a command
+        ask for roll, then ask again until commanded to stop
+            set max turns.  deincriment on turn method call
+            conditional statments
+            if/else
+            while
+
+
+
+    how to fork commands
+        next or stop
+
+    how to iterate through an array each time a method is called
+        player_order
+                array.each do |player|
+                    puts "#{Player} its your turn"
+                    get_command to roll
+                        call roll method
+                            rolls
+                            assigns roll to player
+

@@ -2,4 +2,5 @@ require_relative '../config/environment'
 
 
 
-puts "HELLO WORLD"
+app=CommandLine.new
+app.run
