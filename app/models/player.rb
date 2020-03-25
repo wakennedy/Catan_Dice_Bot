@@ -11,9 +11,20 @@ class Player < ActiveRecord::Base
         roll_object.save
         puts "#{roll_object.value}"
     end
-    
-    def rolls
-        self.rolls
+
+    def my_rolls
+        Roll.where(player_id: self.id).pluck(:value)
     end
 
+    def roll_counts
+        rolls = self.my_rolls
+        counts = Hash.new(0)
+        rolls.each {|num| counts[num]+=1}
+        puts "---------------------------------------------------------
+        #{self.name.capitalize}'s rolls #{counts}
+        ----------------------------------------------------------"
+    end
+
+
+    
 end

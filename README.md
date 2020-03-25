@@ -144,3 +144,10 @@ questions
                             rolls
                             assigns roll to player
 
+
+
+
+
+
+typing error skips a person
+
