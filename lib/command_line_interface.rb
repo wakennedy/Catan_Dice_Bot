@@ -10,6 +10,10 @@ class CommandLine
         playing_the_game(known_players)
     end
 
+    # def test_print
+    #     puts "- #{/n} -"
+    # end
+    
     def welcome
         puts "Hello, welcome to my mess of code!"
     end   
@@ -35,40 +39,29 @@ class CommandLine
         
     def playing_the_game(array_of_players)
         turns = 1000
-        command_to_roll = ["roll", "Roll"]
-        command_to_stop = ["stop", "Stop"]
-
-
         while turns > 0 do 
-            
-
             array_of_players.each do |player|
                 puts "#{player.name.capitalize}, it's your turn. Type 'roll' to roll the dice. Type 'stop' to end the game."
                 command = gets.chomp
-                
-                if command_to_roll.include?(command)
+                if command == "roll"
                     player.roll_the_dice
-                elsif command_to_stop.include?(command)
+                elsif command == "stop"
                     turns = 0 
-                    end_of_game(array_of_players)
-                    break  
-                else 
+                    game_over(array_of_players)
+                    break
+                else
                     puts "please type a valid command"
-                    playing_the_game(array_of_players)
                 end
             end
             turns-=1
-
-
         end
     end
 
-    def end_of_game(array)
+    def game_over(array)
         puts "Game Over"
         puts "Here are the statistics for the game.   Dice Roll => Number of times rolled."
 
         array.each do |player|
-            
             player.roll_counts
         end
     end
