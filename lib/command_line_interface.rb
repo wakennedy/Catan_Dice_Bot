@@ -10,10 +10,6 @@ class CommandLine
         playing_the_game(known_players)
     end
 
-    # def test_print
-    #     puts "- #{/n} -"
-    # end
-    
     def welcome
         puts "Hello, welcome to my mess of code!"
     end   
@@ -32,10 +28,6 @@ class CommandLine
         end
         confirmed_players
     end
-
-    
-
-        
         
     def playing_the_game(array_of_players)
         turns = 1000
@@ -58,8 +50,23 @@ class CommandLine
     end
 
     def game_over(array)
-        puts "Game Over"
-        puts "Here are the statistics for the game.   Dice Roll => Number of times rolled."
+puts "
+   ____    _    __  __ _____    _____     _______ ____  
+  / ___|  / \\  |  \\/  | ____|  / _ \\ \\   / / ____|  _ \\ 
+ | |  _  / _ \\ | |\\/| |  _|   | | | \\ \\ / /|  _| | |_) |
+ | |_| |/ ___ \\| |  | | |___  | |_| |\\ V / | |___|  _ < 
+  \\____/_/   \\_\\_|  |_|_____|  \\___/  \\_/  |_____|_| \\_\\"
+
+
+
+
+
+
+        puts "----------------------------------"
+        puts "Here are the statistics for the game."
+        puts "----------------------------------"
+        puts "Dice Roll => Number of times rolled."
+        puts "----------------------------------"
 
         array.each do |player|
             player.roll_counts

@@ -20,9 +20,8 @@ class Player < ActiveRecord::Base
         rolls = self.my_rolls
         counts = Hash.new(0)
         rolls.each {|num| counts[num]+=1}
-        puts "---------------------------------------------------------
-        #{self.name.capitalize}'s rolls #{counts}
-        ----------------------------------------------------------"
+        puts "#{self.name.capitalize}- #{counts}"
+        puts "----------------------------------"
     end
 
 

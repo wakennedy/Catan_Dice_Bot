@@ -13,8 +13,7 @@
 ActiveRecord::Schema.define(version: 20200324213448) do
 
   create_table "players", force: :cascade do |t|
-    t.string  "name"
-    t.integer "roll_id"
+    t.string "name"
   end
 
   create_table "rolls", force: :cascade do |t|
