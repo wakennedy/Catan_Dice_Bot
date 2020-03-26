@@ -3,6 +3,7 @@ class CommandLine
     def run
         Player.destroy_all
         Roll.destroy_all
+        Statistics.destroy_all
         
         welcome
         players = get_players
@@ -79,10 +80,9 @@ puts "
         puts " "
         puts " "
         array.each do |player|
-            player.roll_counts
+            Statistics.roll_counts(player)
         end
-        Player.sevens
-        #Player.most_rolled
+        Statistics.most_rolled
         puts "---------------------------------------"
     end
     def welcome
