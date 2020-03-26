@@ -12,7 +12,6 @@ class CommandLine
         playing_the_game(known_players)
     end
 
-    
     def get_players
         puts "please type the players names in the order they take their turn"
         response = gets.chomp
@@ -28,7 +27,8 @@ class CommandLine
         end
         confirmed_players
     end
-        
+    
+    
     def playing_the_game(array_of_players)
         turns = 1000
         while turns > 0 do 
@@ -37,8 +37,10 @@ class CommandLine
                 puts ""
                 puts "#{player.name.capitalize}, it's your turn!"
                 puts "_______________________________________________________"
-                puts "Type 'roll' to roll the dice.   An invalid command,    |"
-                puts "Type 'stop' to end the game.    is a turn forfeited :) |"
+                puts "Type 'roll' to roll the dice.                          |"
+                puts "Type 'stop' to end the game.                           |"
+                puts "Type 'name' to update your name at the cost of a turn. |"
+                puts "An invalid command is a turn forfeited. :)             |"
                 puts "--------------------------------------------------------"
                 command = gets.chomp
                 if command == "roll"
@@ -48,6 +50,12 @@ class CommandLine
                     turns = 0 
                     game_over(array_of_players)
                     break
+                elsif command == "name"
+                    puts "please enter your new name"
+                    name = gets.chomp
+                    player.update(name: name)
+                    player.save
+                    puts "Your name has been saved"
                 else 
                     system 'clear'
                     puts "please enter a valid command"
@@ -70,13 +78,6 @@ puts "
  | |  _  / _ \\ | |\\/| |  _|   | | | \\ \\ / /|  _| | |_) |
  | |_| |/ ___ \\| |  | | |___  | |_| |\\ V / | |___|  _ < 
   \\____/_/   \\_\\_|  |_|_____|  \\___/  \\_/  |_____|_| \\_\\"
-
-
-
-
-
-
-
         puts " "
         puts " "
         array.each do |player|
@@ -85,8 +86,8 @@ puts "
         Statistics.most_rolled
         puts "---------------------------------------"
     end
+
     def welcome
-        
 puts "
 __        __   _                          
 \\ \\      / /__| | ___ ___  _ __ ___   ___ 

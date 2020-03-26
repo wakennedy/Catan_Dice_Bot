@@ -16,7 +16,7 @@ class Statistics < ActiveRecord::Base
     end
 
     def self.most_rolled
-        sevens = Roll.where(value: 7).pluck(:value)
+        #sevens = Roll.where(value: 7).pluck(:value)
         counts = Statistics.total_rolls
         counts = counts.sort_by{|k,v| -v}
         puts "---------------------------------------"
