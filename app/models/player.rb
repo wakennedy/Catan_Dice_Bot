@@ -21,13 +21,32 @@ class Player < ActiveRecord::Base
         rolls = self.my_rolls
         counts = Hash.new(0)
         rolls.each {|num| counts[num]+=1}
-        puts "#{self.name.capitalize}-  #{counts.sort_by{|k,v| k}.to_h}"
+        #puts "#{self.name.capitalize}-  #{counts.sort_by{|k,v| k}.to_h}"
         puts "---------------------------------------"
+        puts "#{self.name.capitalize} rolled these numbers!
+2s  => #{counts[2]}
+3s  => #{counts[3]}
+4s  => #{counts[4]}
+5s  => #{counts[5]}
+6s  => #{counts[6]}
+7s  => #{counts[7]}
+8s  => #{counts[8]}
+9s  => #{counts[9]}
+10s => #{counts[10]}
+11s => #{counts[11]}
+12s => #{counts[12]}
+            "
     end
 
     def self.sevens
         sevens = Roll.where(value: 7).pluck(:value)
         puts "Together, you rolled [#{sevens.count}] 7s!!"
     end
-    
+
+    # def self.most_rolled
+    #     binding.pry
+    #     Roll.all.max_by(3) {}
+    # end
+
+
 end

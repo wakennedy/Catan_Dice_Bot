@@ -11,9 +11,7 @@ class CommandLine
         playing_the_game(known_players)
     end
 
-    def welcome
-        puts "Hello, welcome to my mess of code!"
-    end   
+    
     def get_players
         puts "please type the players names in the order they take their turn"
         response = gets.chomp
@@ -44,7 +42,7 @@ class CommandLine
                 command = gets.chomp
                 if command == "roll"
                     system 'clear'
-                    player.roll_the_dice
+                    10.times{player.roll_the_dice}
                 elsif command == "stop"
                     turns = 0 
                     game_over(array_of_players)
@@ -57,6 +55,11 @@ class CommandLine
             turns-=1
         end
     end
+    
+    # def turn(player)
+        
+    # end
+
 
     def game_over(array)
         system 'clear'
@@ -75,13 +78,54 @@ puts "
 
         puts " "
         puts " "
-        puts "Dice Roll => Number of times rolled."
-        puts "---------------------------------------"
         array.each do |player|
             player.roll_counts
         end
         Player.sevens
+        #Player.most_rolled
+        puts "---------------------------------------"
     end
+    def welcome
+        
+puts "
+__        __   _                          
+\\ \\      / /__| | ___ ___  _ __ ___   ___ 
+ \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\
+ _\\ V  V /  __/ | (_| (_) | | | | | |  __/
+| |\\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|
+| __/ _ \\                                 
+| || (_) |                                
+ \\__\\___/   _   _   _                     
+/ ___|  ___| |_| |_| | ___ _ __ ___       
+\\___ \\ / _ \\ __| __| |/ _ \\ '__/ __|      
+ ___) |  __/ |_| |_| |  __/ |  \\__ \\      
+|____/ \\___|\\__|\\__|_|\\___|_|  |___/      
+  ___  / _|                               
+ / _ \\| |_                                
+| (_) |  _|                               
+ \\___/|_|   _                             
+ / ___|__ _| |_ __ _ _ __                 
+| |   / _` | __/ _` | '_ \\                
+| |__| (_| | || (_| | | | |               
+ \\____\\__,_|\\__\\__,_|_| |_|               
+                                          
+"
+    end   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -145,3 +145,7 @@ questions
 
 typing error skips a person
 
+
+
+
+top 3 rollled numbers
