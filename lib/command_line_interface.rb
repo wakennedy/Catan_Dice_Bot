@@ -45,7 +45,7 @@ class CommandLine
                 command = gets.chomp
                 if command == "roll"
                     system 'clear'
-                    10.times{player.roll_the_dice}
+                    player.roll_the_dice
                 elsif command == "stop"
                     turns = 0 
                     game_over(array_of_players)
