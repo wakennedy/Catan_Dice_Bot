@@ -7,6 +7,7 @@ class CommandLine
         welcome
         players = get_players
         known_players = establish_players(players)
+        system 'clear'
         playing_the_game(known_players)
     end
 
@@ -33,16 +34,24 @@ class CommandLine
         turns = 1000
         while turns > 0 do 
             array_of_players.each do |player|
-                puts "#{player.name.capitalize}, it's your turn. Type 'roll' to roll the dice. Type 'stop' to end the game."
+                puts ""
+                puts ""
+                puts "#{player.name.capitalize}, it's your turn!"
+                puts "_______________________________________________________"
+                puts "Type 'roll' to roll the dice.   An invalid command,    |"
+                puts "Type 'stop' to end the game.    is a turn forfeited :) |"
+                puts "--------------------------------------------------------"
                 command = gets.chomp
                 if command == "roll"
+                    system 'clear'
                     player.roll_the_dice
                 elsif command == "stop"
                     turns = 0 
                     game_over(array_of_players)
                     break
-                else
-                    puts "please type a valid command"
+                else 
+                    system 'clear'
+                    puts "please enter a valid command"
                 end
             end
             turns-=1
@@ -50,6 +59,7 @@ class CommandLine
     end
 
     def game_over(array)
+        system 'clear'
 puts "
    ____    _    __  __ _____    _____     _______ ____  
   / ___|  / \\  |  \\/  | ____|  / _ \\ \\   / / ____|  _ \\ 
@@ -62,15 +72,15 @@ puts "
 
 
 
-        puts "----------------------------------"
-        puts "Here are the statistics for the game."
-        puts "----------------------------------"
-        puts "Dice Roll => Number of times rolled."
-        puts "----------------------------------"
 
+        puts " "
+        puts " "
+        puts "Dice Roll => Number of times rolled."
+        puts "---------------------------------------"
         array.each do |player|
             player.roll_counts
         end
+        Player.sevens
     end
 
 

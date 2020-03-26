@@ -71,14 +71,8 @@ ActiveRecord::Base.logger = nil
 
 
 
-Game
-    has_many :players
-    has_many :rolls, through: :players
-
-
 Player
     has_many :rolls
-    belongs_to :game
 
 Roll
     belongs_to :player

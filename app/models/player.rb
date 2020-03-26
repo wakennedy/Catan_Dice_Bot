@@ -9,7 +9,8 @@ class Player < ActiveRecord::Base
         total_roll = roll1+roll2
         roll_object = Roll.create(:value => total_roll, :player_id => self.id)
         roll_object.save
-        puts "#{roll_object.value}"
+        puts "#{self.name.capitalize} rolled #{roll_object.value}!"
+        puts " "
     end
 
     def my_rolls
@@ -20,10 +21,13 @@ class Player < ActiveRecord::Base
         rolls = self.my_rolls
         counts = Hash.new(0)
         rolls.each {|num| counts[num]+=1}
-        puts "#{self.name.capitalize}- #{counts}"
-        puts "----------------------------------"
+        puts "#{self.name.capitalize}-  #{counts.sort_by{|k,v| k}.to_h}"
+        puts "---------------------------------------"
     end
 
-
+    def self.sevens
+        sevens = Roll.where(value: 7).pluck(:value)
+        puts "Together, you rolled [#{sevens.count}] 7s!!"
+    end
     
 end
